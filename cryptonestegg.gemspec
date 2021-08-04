@@ -7,15 +7,17 @@ Gem::Specification.new do |spec|
   spec.version       = Cryptonestegg::VERSION
   spec.authors       = ['Alexandre Mercier']
   spec.email         = ['alex@cyberflamingo.net']
+  spec.homepage      = 'https://github.com/cyberflamingo/cryptonestegg'
 
   spec.summary       = 'Build Your Nest Egg with CryptoCurrency'
-  spec.description   = 'CryptoNestEgg is a simple script to download current ' \
-                        'price and market cap for a list of cryptocurrency. ' \
-                        'The script reads from a `config.toml` file and ' \
-                        'returns the result in a `csv` file.'
+  spec.description   = <<-DESCRIPTION
+    CryptoNestEgg is a simple script to download current price and market cap
+    for a list of cryptocurrency. The script reads from a `config.toml` file and
+    returns the result in a `csv` file.
+  DESCRIPTION
   spec.required_ruby_version = '>= 3.0'
 
-  spec.metadata['source_code_uri'] = 'https://github.com/cyberflamingo/cryptonestegg'
+  spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['changelog_uri'] = 'https://github.com/cyberflamingo/cryptonestegg/blob/main/CHANGELOG.md'
 
   # Specify which files should be added to the gem when it is released.
@@ -28,6 +30,6 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
-  # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
+  spec.add_runtime_dependency 'curb',   '~> 0.9.11'
+  spec.add_runtime_dependency 'tomlrb', '~> 2.0'
 end
