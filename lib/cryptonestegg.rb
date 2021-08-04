@@ -1,15 +1,25 @@
+# frozen_string_literal: true
+
+require 'bundler/setup'
 require 'curb'
 require 'csv'
 require 'json'
+require 'pathname'
 require 'tomlrb'
 require 'uri'
 require 'yaml'
+
+require_relative 'cryptonestegg/version'
+
+PROJECT_ROOT   = Pathname.new(__dir__).parent.expand_path.freeze
+DATA_FOLDER    = PROJECT_ROOT.join('data').freeze
+CONFIG_DEFAULT = DATA_FOLDER.join('config.toml').freeze
 
 class ConfigFile
   attr_reader :currency, :portfolio
 
   def initialize
-    @config = Tomlrb.load_file('config.toml', symbolize_keys: true)
+    @config = Tomlrb.load_file(CONFIG_DEFAULT, symbolize_keys: true)
     @currency = @config[:currency]
     @portfolio = @config[:portfolio]
   end
@@ -19,7 +29,7 @@ class CoingeckoAPI
   attr_reader :results
 
   def initialize
-    @base_uri = 'https://api.coingecko.com/api/v3' + '/simple/price'
+    @base_uri = 'https://api.coingecko.com/api/v3/simple/price'
     @ids = []
     @vs_currency = 'USD'
     @include_market_cap = true
@@ -33,9 +43,7 @@ class CoingeckoAPI
 
     ids.each do |id|
       body_res = get_price(id)
-      unless body_res == '{}'
-        results << format_response(JSON.parse(body_res))
-      end
+      results << format_response(JSON.parse(body_res)) unless body_res == '{}'
     end
   end
 
@@ -83,7 +91,7 @@ class Cryptocurrency
   end
 end
 
-class CoinDownloader
+class CryptoNestEgg
   def main
     read_config_file
     download_informations
@@ -104,7 +112,7 @@ class CoinDownloader
   end
 
   def save_to_csv
-    csv_file = 'cc_results.csv'
+    csv_file = DATA_FOLDER.join('cc_results.csv').freeze
 
     CSV.open(csv_file, 'w') do |writer|
       api.results.each do |cc|
@@ -114,5 +122,5 @@ class CoinDownloader
   end
 end
 
-download = CoinDownloader.new
+download = CryptoNestEgg.new
 download.main
