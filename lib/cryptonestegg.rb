@@ -15,6 +15,8 @@ PROJECT_ROOT   = Pathname.new(__dir__).parent.expand_path.freeze
 DATA_FOLDER    = PROJECT_ROOT.join('data').freeze
 CONFIG_DEFAULT = DATA_FOLDER.join('config.toml').freeze
 
+##
+# Loads the config file with a list of currency and the portfolio.
 class ConfigFile
   attr_reader :currency, :portfolio
 
@@ -25,6 +27,8 @@ class ConfigFile
   end
 end
 
+##
+# Calls the Coingecko API and format the result.
 class CoingeckoAPI
   attr_reader :results
 
@@ -81,6 +85,9 @@ class CoingeckoAPI
   end
 end
 
+##
+# Cryptocurrency objects represent one cryptocurrency's name, price and market
+# capitalization
 class Cryptocurrency
   attr_reader :name, :price, :market_cap
 
@@ -91,6 +98,8 @@ class Cryptocurrency
   end
 end
 
+##
+# Main class of the project. Call the main class to start using this project.
 class CryptoNestEgg
   def main
     read_config_file
