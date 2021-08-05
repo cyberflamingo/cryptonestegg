@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.1] - 2021-08-05
+
+- Add rdoc to main Ruby file
+- Separate runtime and development dependencies respectivly in`.gemspec`
+  and `Gemfile`
+
 ## [0.2.0] - 2021-08-04
 
 - Use Bundler

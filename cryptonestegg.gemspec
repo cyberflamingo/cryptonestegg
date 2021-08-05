@@ -5,6 +5,7 @@ require_relative 'lib/cryptonestegg/version'
 Gem::Specification.new do |spec|
   spec.name          = 'cryptonestegg'
   spec.version       = Cryptonestegg::VERSION
+  spec.license       = 'Apache-2.0'
   spec.authors       = ['Alexandre Mercier']
   spec.email         = ['alex@cyberflamingo.net']
   spec.homepage      = 'https://github.com/cyberflamingo/cryptonestegg'
@@ -30,6 +31,6 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'curb',   '~> 0.9.11'
-  spec.add_runtime_dependency 'tomlrb', '~> 2.0'
+  spec.add_runtime_dependency('curb',   '~> 0.9.11')
+  spec.add_runtime_dependency('tomlrb', '~> 2.0')
 end
