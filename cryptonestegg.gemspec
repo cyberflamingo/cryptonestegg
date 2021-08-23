@@ -3,8 +3,8 @@
 require_relative 'lib/cryptonestegg/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'cryptonestegg'
-  spec.version       = Cryptonestegg::VERSION
+  spec.name          = 'CryptoNestEgg'
+  spec.version       = CryptoNestEgg::VERSION
   spec.license       = 'Apache-2.0'
   spec.authors       = ['Alexandre Mercier']
   spec.email         = ['alex@cyberflamingo.net']
