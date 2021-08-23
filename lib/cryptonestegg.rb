@@ -3,7 +3,6 @@
 require 'bundler/setup'
 require 'csv'
 require 'pathname'
-require 'yaml'
 
 require_relative 'cryptonestegg/api'
 require_relative 'cryptonestegg/config'
