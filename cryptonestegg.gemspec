@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
     for a list of cryptocurrency. The script reads from a `config.toml` file and
     returns the result in a `csv` file.
   DESCRIPTION
-  spec.required_ruby_version = '>= 3.0'
+  spec.required_ruby_version = '>= 2.7'
 
   spec.metadata['source_code_uri'] = spec.homepage
   spec.metadata['changelog_uri'] = 'https://github.com/cyberflamingo/cryptonestegg/blob/main/CHANGELOG.md'
