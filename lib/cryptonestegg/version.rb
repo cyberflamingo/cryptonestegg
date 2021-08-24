@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module Cryptonestegg
-  VERSION = '0.2.1'
+module CryptoNestEgg
+  VERSION = '0.2.2'
 end

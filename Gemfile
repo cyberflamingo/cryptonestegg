@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '3.0.2'
+ruby '>= 2.7'
 
 # Specify your gem's dependencies in cryptonestegg.gemspec
 gemspec
@@ -15,7 +15,7 @@ end
 
 group :test do
   gem 'minitest', '~> 5.14'
-  gem 'rubocop', '~> 1.17'
-  gem 'rubocop-minitest', '~> 0.14.0'
-  gem 'rubocop-rake', '~> 0.6.0'
+  gem 'rubocop', '~> 0.86.0'
+  gem 'rubocop-minitest'
+  gem 'rubocop-rake'
 end
