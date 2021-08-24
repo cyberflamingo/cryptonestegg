@@ -5,7 +5,7 @@ module CryptoNestEgg
   # Main class of the project. Call the main class to start using this project.
   class Runner
     def initialize
-      @config = ConfigFile.new
+      @config = ConfigFile.new(CONFIG_DEFAULT)
       @api = CoingeckoAPI.new
     end
 

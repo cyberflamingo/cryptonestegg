@@ -8,8 +8,8 @@ module CryptoNestEgg
   class ConfigFile
     attr_reader :currency, :portfolio
 
-    def initialize
-      @config = Tomlrb.load_file(CONFIG_DEFAULT, symbolize_keys: true)
+    def initialize(config_file)
+      @config = load(config_file)
       @currency = @config[:currency]
       @portfolio = @config[:portfolio]
     end
