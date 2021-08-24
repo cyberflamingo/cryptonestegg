@@ -16,10 +16,10 @@ module CryptoNestEgg
 
     private
 
-    attr_reader :config, :api
+    attr_reader :api
 
     def download_informations
-      @api.download(config)
+      api.download(@config)
     end
 
     def save_to_csv
