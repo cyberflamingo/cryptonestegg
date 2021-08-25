@@ -1,0 +1,6 @@
+currency = "EUR"
+
+[portfolio]
+  Monero =
+    0
+  Algorand = 0

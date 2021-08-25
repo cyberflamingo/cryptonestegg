@@ -10,8 +10,25 @@ module CryptoNestEgg
 
     def initialize(config_file)
       @config = load(config_file)
-      @currency = @config[:currency]
+      @currency = @config[:currency].nil? ? 'USD' : @config[:currency]
+
       @portfolio = @config[:portfolio]
+    end
+
+    private
+
+    def load(config_file)
+      config = Tomlrb.load_file(config_file, symbolize_keys: true)
+
+      raise ArgumentError, 'Config file is empty' if config.empty?
+
+      portfolio = config[:portfolio]
+
+      if portfolio.nil? || portfolio.empty?
+        raise ArgumentError, 'Config file has no portfolio or is empty'
+      end
+
+      config
     end
   end
 end
