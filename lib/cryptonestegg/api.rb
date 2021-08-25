@@ -59,7 +59,7 @@ module CryptoNestEgg
       price      = json[name][currency]
       market_cap = json[name]["#{currency}_market_cap"]
 
-      Cryptocurrency.new(name, price, market_cap)
+      Cryptocurrency.new(name.to_sym, price, market_cap)
     end
   end
 end

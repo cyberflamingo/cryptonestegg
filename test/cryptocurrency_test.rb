@@ -4,7 +4,7 @@ require_relative 'test_helper'
 
 class CryptocurrencyTest < Minitest::Test
   def setup
-    @name = 'yieldly'
+    @name = :yieldly
     @price = 0.0238131
     @market_cap = 51_598_947.69799517
 
