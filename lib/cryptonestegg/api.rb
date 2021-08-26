@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-require 'curb'
 require 'json'
-require 'uri'
+require 'net/http'
 
 module CryptoNestEgg
   ##
@@ -11,7 +10,7 @@ module CryptoNestEgg
     attr_reader :results
 
     def initialize
-      @base_uri = 'https://api.coingecko.com/api/v3/simple/price'
+      @base_uri = URI('https://api.coingecko.com/api/v3/simple/price')
       @ids = []
       @vs_currency = 'USD'
       @include_market_cap = true
@@ -41,16 +40,18 @@ module CryptoNestEgg
     end
 
     def get_price(id)
-      uri = "#{base_uri}?ids=#{id}" \
-            "&vs_currencies=#{vs_currency}" \
-            "&include_market_cap=#{include_market_cap}"
+      params = { ids: id, vs_currencies: vs_currency,
+                 include_market_cap: include_market_cap }
+      base_uri.query = URI.encode_www_form(params)
 
-      sleep(1)
-      http = Curl.get(uri) do |req|
-        req.headers['accept'] = 'application/json'
+      res = Net::HTTP.get_response(base_uri)
+
+      if res.is_a?(Net::HTTPSuccess)
+        res.body
+      else
+        # TODO: Handle unsuccessful Net::HTTPResponse
+        ''
       end
-
-      http.body_str
     end
 
     def format_response(json)
