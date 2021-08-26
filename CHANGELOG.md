@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0] - 2021-08-26
+
+- Add tests for each program files
+- Pass config files and constants as parameters
+- Symbolize cryptocoin's name
+- Separate CSV related program in new class
+
 ## [0.2.2] - 2021-08-24
 
 - Reorganize code and split by class
