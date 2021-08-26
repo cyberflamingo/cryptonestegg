@@ -7,11 +7,12 @@ module CryptoNestEgg
     def initialize
       @config = ConfigFile.new(CONFIG_DEFAULT)
       @api = CoingeckoAPI.new
+      @results_file = CSVFile.new(RESULTS_FILE)
     end
 
     def run
       download_informations
-      save_to_csv
+      @results_file.save_to_csv(api.results)
     end
 
     private
@@ -20,16 +21,6 @@ module CryptoNestEgg
 
     def download_informations
       api.download(@config)
-    end
-
-    def save_to_csv
-      csv_file = DATA_FOLDER.join('cc_results.csv').freeze
-
-      CSV.open(csv_file, 'w') do |writer|
-        api.results.each do |cc|
-          writer << [cc.name, cc.price, cc.market_cap]
-        end
-      end
     end
   end
 end
