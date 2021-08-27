@@ -5,8 +5,8 @@ require 'net/http'
 
 module CryptoNestEgg
   ##
-  # Calls the Coingecko API and format the result.
-  class CoingeckoAPI
+  # Calls the CoinGecko API and format the result.
+  class CoinGeckoAPI
     attr_reader :results
 
     def initialize

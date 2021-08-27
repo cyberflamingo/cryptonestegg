@@ -2,14 +2,14 @@
 
 require_relative 'test_helper'
 
-class CoingeckoAPITest < Minitest::Test
+class CoinGeckoAPITest < Minitest::Test
   def setup
     toml = PROJECT_ROOT.join('test/config_tests')
                        .join('config_simple.toml').freeze
     @config = ConfigFile.new(toml)
     @portfolio = @config.portfolio.keys.map(&:downcase)
 
-    @api = CoingeckoAPI.new
+    @api = CoinGeckoAPI.new
   end
 
   def test_api_initialized_with_empty_state

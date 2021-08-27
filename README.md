@@ -64,7 +64,7 @@ coin's name.
 ## Improvement
 
 - Add support for APIs other than CoinGecko.
-- Cryptocurrency names/symboles are from Coingecko's API which naming is
+- Cryptocurrency names/symboles are from CoinGecko's API which naming is
   sometimes confusing. A list of commons name for a cryptocurrency could be
   useful in the future.
 - Error handling.

@@ -6,7 +6,7 @@ module CryptoNestEgg
   class Runner
     def initialize
       @config = ConfigFile.new(CONFIG_DEFAULT)
-      @api = CoingeckoAPI.new
+      @api = CoinGeckoAPI.new
       @results_file = CSVFile.new(RESULTS_FILE)
     end
 
