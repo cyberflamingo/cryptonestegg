@@ -13,16 +13,16 @@ class CoinGeckoAPITest < Minitest::Test
   end
 
   def test_api_initialized_with_empty_state
-    assert_empty(@api.results)
+    assert_empty(@api.response)
   end
 
-  def test_download_from_api
+  def test_fetch_prices_from_api
     skip
     # TODO: Mockup the API's response so that the test is not dependent on
     # network latency
-    @api.download(@config)
+    @api.fetch_prices(@config)
 
-    coins = @api.results
+    coins = @api.response
 
     assert_equal(2, coins.size)
     assert_equal(@portfolio.sort, coins.map(&:name).sort)

@@ -10,8 +10,8 @@ module CryptoNestEgg
 
     def initialize(config_file)
       @config = load(config_file)
-      @currency = @config[:currency].nil? ? 'USD' : @config[:currency]
 
+      @currency = @config[:currency].nil? ? 'usd' : @config[:currency].downcase
       @portfolio = @config[:portfolio]
     end
 

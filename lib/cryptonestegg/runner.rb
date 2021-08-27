@@ -6,21 +6,18 @@ module CryptoNestEgg
   class Runner
     def initialize
       @config = ConfigFile.new(CONFIG_DEFAULT)
-      @api = CoinGeckoAPI.new
+      @client = API.select(PROVIDER)
       @results_file = CSVFile.new(RESULTS_FILE)
     end
 
     def run
-      download_informations
-      @results_file.save_to_csv(api.results)
+      client.check_connection
+      client.fetch_prices(@config)
+      @results_file.save_to_csv(client.response)
     end
 
     private
 
-    attr_reader :api
-
-    def download_informations
-      api.download(@config)
-    end
+    attr_reader :client
   end
 end

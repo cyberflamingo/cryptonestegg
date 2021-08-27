@@ -16,5 +16,9 @@ DATA_FOLDER    = PROJECT_ROOT.join('data').freeze
 CONFIG_DEFAULT = DATA_FOLDER.join('config.toml').freeze
 RESULTS_FILE   = DATA_FOLDER.join('cc_results.csv').freeze
 
+PROVIDER       = 'CoinGecko'
+RETRY_LIMIT    = 5
+RETRY_TIME     = 60 # seconds
+
 runner = CryptoNestEgg::Runner.new
 runner.run

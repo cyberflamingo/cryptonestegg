@@ -5,7 +5,7 @@ require_relative 'test_helper'
 class ConfigFileTest < Minitest::Test
   def setup
     @config_tests_folder = PROJECT_ROOT.join('test/config_tests').freeze
-    @currency = 'EUR'
+    @currency = 'eur'
     @portfolio = { Monero: 0, Algorand: 0 }
   end
 
@@ -90,7 +90,7 @@ class ConfigFileTest < Minitest::Test
       config = ConfigFile.new(toml)
 
       assert_empty(toml.read.scan('currency'))
-      assert_equal('USD', config.currency)
+      assert_equal('usd', config.currency)
     end
   end
 end

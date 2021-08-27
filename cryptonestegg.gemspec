@@ -31,5 +31,6 @@ Gem::Specification.new do |spec|
   end
   spec.require_paths = ['lib']
 
+  spec.add_runtime_dependency('coingecko_ruby')
   spec.add_runtime_dependency('tomlrb', '~> 2.0')
 end
