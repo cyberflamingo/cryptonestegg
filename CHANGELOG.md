@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.0] - 2021-08-29
+
+- Use CoinGecko recommanded Ruby's API
+  https://www.coingecko.com/en/api/documentation#accordion
+- Fix tests accordingly
+
 ## [0.3.0] - 2021-08-26
 
 - Add tests for each program files
